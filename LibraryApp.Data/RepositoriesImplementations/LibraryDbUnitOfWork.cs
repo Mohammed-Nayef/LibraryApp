@@ -12,7 +12,7 @@ namespace LibraryApp.Data.RepositoriesImplementations
     {
         private readonly LibraryAppDbContext dbContext;
 
-        public IRepository<AppUser> AppUsers { get; set; }
+        public IAppUserRepository AppUsers { get; set; }
         public IUserDerivedEntityRepository<Author> Authors { get; set; }
         public IUserDerivedEntityRepository<Customer> Customers { get; set; }
         public IUserDerivedEntityRepository<Employee> Employees { get; set; }
@@ -20,11 +20,23 @@ namespace LibraryApp.Data.RepositoriesImplementations
         public IRepository<Book> Books { get; set; }
         public IRepository<BookBorrow> BookBorrows { get; set; }
         public IRepository<Category> Categories { get; set; }
+        public IRepository<Tag> Tags{ get; set; }
+        public IRepository<BookTag> BookTags { get; set; }
 
         public LibraryDbUnitOfWork(LibraryAppDbContext dbContext)
         {
             this.dbContext = dbContext;
 
+            Books = new Repository<Book>(dbContext);
+            Authors = new UserDerivedEntityRepository<Author>(dbContext);
+            Customers = new UserDerivedEntityRepository<Customer>(dbContext);
+            Employees = new UserDerivedEntityRepository<Employee>(dbContext);
+            AppUsers = new AppUserRepository(dbContext);
+            Categories = new Repository<Category>(dbContext);
+            Subcategories = new Repository<Subcategory>(dbContext);
+            BookBorrows = new Repository<BookBorrow>(dbContext);
+            BookTags = new Repository<BookTag>(dbContext);
+            Tags = new Repository<Tag>(dbContext);
 
         }
         public void Dispose()

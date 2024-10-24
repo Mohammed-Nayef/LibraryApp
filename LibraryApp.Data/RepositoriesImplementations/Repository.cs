@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.Data.RepositoriesImplementations
 {
-    public class Repository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         protected DbContext _dbContext;
 
