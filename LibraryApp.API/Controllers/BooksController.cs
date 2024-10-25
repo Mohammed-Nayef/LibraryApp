@@ -108,7 +108,6 @@ namespace LibraryApp.API.Controllers
             if (book == null)
                 return NotFound();
 
-            // ERROR : fix fk problem (not working) 
             dbUnitOfWork.Books.Delete(book);
             dbUnitOfWork.Save();
 

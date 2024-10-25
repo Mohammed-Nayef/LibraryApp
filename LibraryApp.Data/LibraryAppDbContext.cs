@@ -42,11 +42,11 @@ namespace LibraryApp.Data
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
             modelBuilder.Entity<BookBorrow>()
-                .HasOne(bb => bb.Book)
-                .WithMany(b => b.Borrows)
-                .HasForeignKey(bb => bb.BookId)
+                .HasOne(bb => bb.Customer)
+                .WithMany(c => c.BookBorrows)
+                .HasForeignKey(bb => bb.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
-                
+
             modelBuilder.Entity<AppUser>().HasData(
                 new AppUser
                 {

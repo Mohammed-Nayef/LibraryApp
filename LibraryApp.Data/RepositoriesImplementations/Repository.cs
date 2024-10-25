@@ -88,7 +88,7 @@ namespace LibraryApp.Data.RepositoriesImplementations
                 return;
             }
 
-            // if the entity is related to user (customer,driver,employee)
+            // if the entity is related to user (customer,author,employee)
             if (entity is IUserDerivedEntity)
             {
 

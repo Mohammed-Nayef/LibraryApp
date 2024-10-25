@@ -13,5 +13,6 @@ namespace LibraryApp.Domain.Models
 
         public int AppUserId { get; set; }
         public virtual AppUser? AppUser { get; set; }
+        public virtual List<BookBorrow> BookBorrows { get; set; } = [];
     }
 }
