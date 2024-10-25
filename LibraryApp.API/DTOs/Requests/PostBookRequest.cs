@@ -1,4 +1,5 @@
 ﻿using LibraryApp.Domain.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace LibraryApp.API.DTOs.Requests
 {
@@ -19,7 +20,8 @@ namespace LibraryApp.API.DTOs.Requests
 
         //public virtual List<BookTag> BookTags { get; set; } = [];
         public List<int> TagsIds { get; set; } = [];
-        public DateOnly PublishedDate { get; set; }
+        [Required]
+        public DateOnly PublishedDate { get; set; } 
 
     }
 }

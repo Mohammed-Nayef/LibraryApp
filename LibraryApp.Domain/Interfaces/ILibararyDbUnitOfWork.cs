@@ -19,6 +19,7 @@ namespace LibraryApp.Domain.Interfaces
         IRepository<Category> Categories { get; set; }
         IRepository<Tag> Tags { get; set; }
         IRepository<BookTag> BookTags { get; set; }
+        IStoredProceduresRepository StoredProcedures { get; set; }
 
     }
 }

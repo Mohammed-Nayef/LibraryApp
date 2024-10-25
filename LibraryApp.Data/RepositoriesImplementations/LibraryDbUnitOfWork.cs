@@ -22,6 +22,7 @@ namespace LibraryApp.Data.RepositoriesImplementations
         public IRepository<Category> Categories { get; set; }
         public IRepository<Tag> Tags{ get; set; }
         public IRepository<BookTag> BookTags { get; set; }
+        public IStoredProceduresRepository StoredProcedures { get; set; }
 
         public LibraryDbUnitOfWork(LibraryAppDbContext dbContext)
         {
@@ -37,6 +38,7 @@ namespace LibraryApp.Data.RepositoriesImplementations
             BookBorrows = new Repository<BookBorrow>(dbContext);
             BookTags = new Repository<BookTag>(dbContext);
             Tags = new Repository<Tag>(dbContext);
+            StoredProcedures = new StoredProceduresRepository(dbContext);
 
         }
         public void Dispose()
