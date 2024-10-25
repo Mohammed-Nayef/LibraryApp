@@ -10,5 +10,6 @@ namespace LibraryApp.Domain.Interfaces
     public interface IAppUserRepository : IRepository<AppUser>
     {
         AppUser? GetByEmail(string email);
+        bool IsEmailUsed(string email);
     }
 }

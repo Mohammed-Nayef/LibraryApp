@@ -14,7 +14,7 @@ namespace LibraryApp.Data.RepositoriesImplementations
 
         public IAppUserRepository AppUsers { get; set; }
         public IUserDerivedEntityRepository<Author> Authors { get; set; }
-        public IUserDerivedEntityRepository<Customer> Customers { get; set; }
+        public ICustomerRepository Customers { get; set; }
         public IUserDerivedEntityRepository<Employee> Employees { get; set; }
         public IRepository<Subcategory> Subcategories { get; set; }
         public IRepository<Book> Books { get; set; }
@@ -29,7 +29,7 @@ namespace LibraryApp.Data.RepositoriesImplementations
 
             Books = new Repository<Book>(dbContext);
             Authors = new UserDerivedEntityRepository<Author>(dbContext);
-            Customers = new UserDerivedEntityRepository<Customer>(dbContext);
+            Customers = new CustomerRepository(dbContext);
             Employees = new UserDerivedEntityRepository<Employee>(dbContext);
             AppUsers = new AppUserRepository(dbContext);
             Categories = new Repository<Category>(dbContext);

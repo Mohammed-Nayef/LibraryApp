@@ -22,5 +22,11 @@ namespace LibraryApp.Data.RepositoriesImplementations
                 .Where(appUser => !appUser.IsDeleted)
                 .FirstOrDefault();
         }
+
+        public bool IsEmailUsed(string email)
+        {
+            return _dbContext.Set<AppUser>()
+                 .Any(appUser => appUser.Email == email);
+        }
     }
 }
