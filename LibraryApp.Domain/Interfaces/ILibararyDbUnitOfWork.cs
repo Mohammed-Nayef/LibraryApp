@@ -14,7 +14,7 @@ namespace LibraryApp.Domain.Interfaces
         ICustomerRepository Customers { get; set; }
         IUserDerivedEntityRepository<Employee> Employees { get; set; }
         IRepository<Subcategory> Subcategories { get; set; }
-        IRepository<Book> Books { get; set; }
+        IBookRepository Books { get; set; }
         IRepository<BookBorrow> BookBorrows { get; set; }
         IRepository<Category> Categories { get; set; }
         IRepository<Tag> Tags { get; set; }

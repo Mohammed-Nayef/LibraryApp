@@ -17,7 +17,7 @@ namespace LibraryApp.Data.RepositoriesImplementations
         public ICustomerRepository Customers { get; set; }
         public IUserDerivedEntityRepository<Employee> Employees { get; set; }
         public IRepository<Subcategory> Subcategories { get; set; }
-        public IRepository<Book> Books { get; set; }
+        public IBookRepository Books { get; set; }
         public IRepository<BookBorrow> BookBorrows { get; set; }
         public IRepository<Category> Categories { get; set; }
         public IRepository<Tag> Tags{ get; set; }
@@ -27,7 +27,7 @@ namespace LibraryApp.Data.RepositoriesImplementations
         {
             this.dbContext = dbContext;
 
-            Books = new Repository<Book>(dbContext);
+            Books = new BookRepository(dbContext);
             Authors = new UserDerivedEntityRepository<Author>(dbContext);
             Customers = new CustomerRepository(dbContext);
             Employees = new UserDerivedEntityRepository<Employee>(dbContext);
