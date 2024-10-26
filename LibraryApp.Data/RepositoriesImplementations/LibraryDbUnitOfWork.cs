@@ -19,7 +19,7 @@ namespace LibraryApp.Data.RepositoriesImplementations
         public IRepository<Subcategory> Subcategories { get; set; }
         public IBookRepository Books { get; set; }
         public IRepository<BookBorrow> BookBorrows { get; set; }
-        public IRepository<Category> Categories { get; set; }
+        public ICategoryRepository Categories { get; set; }
         public IRepository<Tag> Tags{ get; set; }
         public IRepository<BookTag> BookTags { get; set; }
         public IStoredProceduresRepository StoredProcedures { get; set; }
@@ -33,7 +33,7 @@ namespace LibraryApp.Data.RepositoriesImplementations
             Customers = new CustomerRepository(dbContext);
             Employees = new UserDerivedEntityRepository<Employee>(dbContext);
             AppUsers = new AppUserRepository(dbContext);
-            Categories = new Repository<Category>(dbContext);
+            Categories = new CategoryRepository(dbContext);
             Subcategories = new Repository<Subcategory>(dbContext);
             BookBorrows = new Repository<BookBorrow>(dbContext);
             BookTags = new Repository<BookTag>(dbContext);

@@ -16,7 +16,7 @@ namespace LibraryApp.Domain.Interfaces
         IRepository<Subcategory> Subcategories { get; set; }
         IBookRepository Books { get; set; }
         IRepository<BookBorrow> BookBorrows { get; set; }
-        IRepository<Category> Categories { get; set; }
+        ICategoryRepository Categories { get; set; }
         IRepository<Tag> Tags { get; set; }
         IRepository<BookTag> BookTags { get; set; }
         IStoredProceduresRepository StoredProcedures { get; set; }
