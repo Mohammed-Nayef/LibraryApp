@@ -70,6 +70,16 @@ builder.Services.AddSwaggerGen(c => {
     });
 });
 
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("AllowAll", policyBuilder =>
+    {
+        policyBuilder.AllowAnyHeader()
+        .AllowAnyMethod()
+        .SetIsOriginAllowed(origin => true);
+
+    });
+});
  
 var app = builder.Build();
 
@@ -80,9 +90,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
+
+app.UseCors("AllowAll");
 
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();
