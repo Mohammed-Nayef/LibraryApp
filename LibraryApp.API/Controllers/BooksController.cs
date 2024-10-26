@@ -110,7 +110,7 @@ namespace LibraryApp.API.Controllers
             return NoContent();
         }
 
-        [HttpGet("/category/{id}")]
+        [HttpGet("category/{id}")]
         public ActionResult<List<GetBookResponse>> GetByCategoryId(int id)
         {
             var books = dbUnitOfWork.Books.GetByCategoryId(id);
@@ -119,7 +119,7 @@ namespace LibraryApp.API.Controllers
             return Ok(res);
         }
 
-        [HttpGet("/category/{categoryId}/subcategory/{subcategoryId}")]
+        [HttpGet("category/{categoryId}/subcategory/{subcategoryId}")]
         public ActionResult<List<GetBookResponse>> GetByCategoryIdAndSubcategoryId(int categoryId ,int subcategoryId)
         {
             var books = dbUnitOfWork.Books.GetByCategoryAndSubcategory(categoryId,subcategoryId);
