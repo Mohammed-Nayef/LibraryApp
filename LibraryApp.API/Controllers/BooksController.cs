@@ -54,7 +54,7 @@ namespace LibraryApp.API.Controllers
             return Ok(res);
         }
 
-        // TODO : Test 
+
         [HttpPost]
         public ActionResult<GetBookResponse> CreateBook([FromBody] PostBookRequest request)
         {
@@ -63,8 +63,10 @@ namespace LibraryApp.API.Controllers
 
             if (dbUnitOfWork.Authors.GetById(request.AuthorId) == null)
                 return NotFound("Author Specified does not exist");
+
             if (dbUnitOfWork.Categories.GetById(request.CategoryId) == null)
                  return NotFound("Category specified does not exist");
+
             if (dbUnitOfWork.Subcategories.GetById(request.SubcategoryId) == null)
                  return NotFound("Subcategory specified does not exist");
             
@@ -81,6 +83,31 @@ namespace LibraryApp.API.Controllers
 
             return CreatedAtRoute("GetById", new { id = book.Id },res);
 
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult PutBook(int id,[FromBody] PutBookRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(modelState: ModelState);
+
+            var book = dbUnitOfWork.Books.GetById(id);
+            if (book == null)
+                return NotFound("The specified book does not exist ");
+
+            if (request.AuthorId != book.AuthorId && dbUnitOfWork.Authors.GetById(request.AuthorId) == null)
+                return NotFound("Author Specified does not exist");
+
+            if (request.CategoryId != book.CategoryId && dbUnitOfWork.Categories.GetById(request.CategoryId) == null)
+                return NotFound("Category specified does not exist");
+
+            if (request.SubcategoryId != book.SubcategoryId && dbUnitOfWork.Subcategories.GetById(request.SubcategoryId) == null)
+                return NotFound("Subcategory specified does not exist");
+
+            mapper.Map(source: request, destination: book);
+            dbUnitOfWork.Save();
+
+            return NoContent();
         }
 
         [HttpGet("/category/{id}")]

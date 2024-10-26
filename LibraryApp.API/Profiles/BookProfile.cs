@@ -23,6 +23,8 @@ namespace LibraryApp.API.Profiles
                 .ForMember(d => d.SubcategoryName, opt => opt.MapFrom(s => s.Subcategory!.Name))
                 .ForMember(d => d.Tags, opt => opt.MapFrom(s => s.BookTags.Select(bt => bt.Tag!.Name)));
 
+            CreateMap<PutBookRequest, Book>();
+
 
         }
     }
