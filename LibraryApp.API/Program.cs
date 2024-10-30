@@ -1,3 +1,4 @@
+using LibraryApp.API.HttpClients;
 using LibraryApp.API.Services;
 using LibraryApp.Data;
 using LibraryApp.Data.RepositoriesImplementations;
@@ -81,6 +82,8 @@ builder.Services.AddCors(opt =>
     });
 });
  
+
+builder.Services.AddSingleton<StackOverflowClient>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

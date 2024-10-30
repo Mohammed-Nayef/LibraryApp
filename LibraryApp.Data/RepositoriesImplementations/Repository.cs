@@ -28,7 +28,7 @@ namespace LibraryApp.Data.RepositoriesImplementations
         /// 
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>A List<typeparamref name="T"/> where instance of <typeparamref name="T"/> includeing AppUser if T is IUserDerivedEntity (Employee ,Customer or Driver).
+        /// <returns>A List<typeparamref name="T"/> where instance of <typeparamref name="T"/> includeing AppUser if T is IUserDerivedEntity (Employee ,Customer or Author).
         /// Otherwise returns List<typeparamref name="T"/>  </returns>
         public virtual IEnumerable<T> GetAll()
         {
@@ -53,7 +53,7 @@ namespace LibraryApp.Data.RepositoriesImplementations
         /// 
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>An instance of T with AppUser Included if T is IUserDerivedEntity (Employee ,Customer or Driver)</returns>
+        /// <returns>An instance of T with AppUser Included if T is IUserDerivedEntity (Employee ,Customer or Author)</returns>
         /// <returns>An instance of T otherwise</returns>
         public virtual T? GetById(int id)
         {
